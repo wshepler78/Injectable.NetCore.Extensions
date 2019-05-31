@@ -4,6 +4,13 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>Injectable.NetCore.Extensions</AssemblyName>
     <RootNamespace>Injectable.NetCore.Extensions</RootNamespace>
+    <Authors>Will Shepler</Authors>
+    <Company />
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <RepositoryUrl>https://github.com/wshepler78/Injectable.NetCore.Extensions</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/wshepler78/Injectable.NetCore.Extensions</PackageProjectUrl>
+    <PackageLicenseExpression>https://github.com/wshepler78/Injectable.NetCore.Extensions</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>

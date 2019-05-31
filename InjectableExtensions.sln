@@ -9,6 +9,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Injection", "Injection", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests.InjectableExtensions", "Tests.InjectableExtensions\Tests.InjectableExtensions.csproj", "{75A66594-B120-443A-8773-3FADE21B3961}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{805626BC-B033-4937-A91E-9D7661D74929}"
+	ProjectSection(SolutionItems) = preProject
+		injectable_netcore_extensions.png = injectable_netcore_extensions.png
+		LICENSE = LICENSE
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug API|Any CPU = Debug API|Any CPU
