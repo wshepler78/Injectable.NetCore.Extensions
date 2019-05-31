@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Tests.InjectableExtensions/bin/Debug/netcoreapp2.2
+/Tests.InjectableExtensions/obj
+/InjectableExtensions/obj
+/InjectableExtensions/bin/Debug/netstandard2.0
+/.vs/InjectableExtensions/v16/Server/sqlite3
