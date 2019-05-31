@@ -6,7 +6,7 @@ using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
-namespace Injectable.WS.Extensions
+namespace Injectable.NetCore.Extensions
 {
     public static class Injector
     {

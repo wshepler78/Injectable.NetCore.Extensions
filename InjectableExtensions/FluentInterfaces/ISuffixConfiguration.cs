@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Injectable.WS.Extensions
+namespace Injectable.NetCore.Extensions.FluentInterfaces
 {
 	public interface ISuffixConfiguration
 	{

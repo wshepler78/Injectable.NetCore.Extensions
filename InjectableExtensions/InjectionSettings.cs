@@ -1,39 +1,39 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
+using Injectable.NetCore.Extensions.FluentInterfaces;
 
-namespace Injectable.WS.Extensions
+namespace Injectable.NetCore.Extensions
 {
 	public class InjectionSettings : IInjectionSettings, IInjectionModeConfiguration, IInjectionRootNamespaceConfiguration, IInjectionImplementationLimitsConfiguration, IPrefixConfiguration, ISuffixConfiguration, IStrictNamingConfiguration
     {
         /// <summary>
         /// Prefix of interface types, defaults to "I"
         /// </summary>
-        public string InterfacePrefix { get; internal set; } = "I";
+        public string InterfacePrefix { get; set; } = "I";
         /// <summary>
         /// Interface suffixs to identify injectables
         /// </summary>
-        public List<string> InterfaceSuffixList { get; internal set; } = new List<string>();
+        public List<string> InterfaceSuffixList { get; set; } = new List<string>();
         /// <summary>
         /// Namespaces to load interfaces from
         /// </summary>
-        public List<string> InterfaceRootNamespaces { get; internal set; } = new List<string>();
+        public List<string> InterfaceRootNamespaces { get; set; } = new List<string>();
         /// <summary>
         /// When set to true, Injected classes must have the same name as the interface, without the leading "I"
         /// ex: INameProvider will inject the NameProvider class, but not TheNameProvider, even if TheNameProvider implements INameProvider
         /// 
         /// Defaults to true
         /// </summary>
-        public bool EnforceStrictNaming { get; internal set; } = true;
+        public bool EnforceStrictNaming { get; set; } = true;
         /// <summary>
         /// When set to true, Only classes in the same root namespaces as the interface collections they implement will be injected
         /// 
         /// Defaults to false
         /// </summary>
-        public bool RestrictImplementationsToInterfaceNamespaces { get; internal set; } = false;
+        public bool RestrictImplementationsToInterfaceNamespaces { get; set; } = false;
 
-        public InjectionMode InjectionMode { get; internal set; } = InjectionMode.Scoped;
+        public InjectionMode InjectionMode { get; set; } = InjectionMode.Scoped;
 
         /// <summary>
         /// Checks settings for minimum viable usability, throws an InvalidOperationException if validation criteria fails

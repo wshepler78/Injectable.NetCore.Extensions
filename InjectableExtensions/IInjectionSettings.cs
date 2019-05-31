@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Injectable.NetCore.Extensions.FluentInterfaces;
 
-namespace Injectable.WS.Extensions
+namespace Injectable.NetCore.Extensions
 {
 	public interface IInjectionSettings
 	{

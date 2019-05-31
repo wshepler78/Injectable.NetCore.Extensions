@@ -1,6 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Injectable.WS.Extensions
+namespace Injectable.NetCore.Extensions
 {
     public interface IInjectionManager
     {

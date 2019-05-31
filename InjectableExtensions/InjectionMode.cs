@@ -1,4 +1,4 @@
-namespace Injectable.WS.Extensions
+namespace Injectable.NetCore.Extensions
 {
     public enum InjectionMode
     {

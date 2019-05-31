@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Injectable.WS.Extensions;
+using Injectable.NetCore.Extensions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests.InjectableExtensions

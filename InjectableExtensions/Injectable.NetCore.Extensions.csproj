@@ -16,6 +16,7 @@
     <Description>Provides extensions for depenedency injection to enable convention-based injection for .Net Core and Standard projects</Description>
     <Copyright>2019</Copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
