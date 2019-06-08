@@ -3,6 +3,19 @@
 
 Injectable Extensions streamlines dependency injection in .Net Core and .Net Standard development scenarios by providing a set of extensions methods which enable convention-based injection from loaded assemblies. The extensions can be used directly from any IServiceCollection, or a broader set of injection rules can be provided via the InjectionSettings class.
 
+## Installation
+
+
+From Package Manager Console:
+```sh
+Install-Package Injectable.NetCore.Extensions
+```
+
+From Cli:
+```sh
+dotnet add package Injectable.NetCore.Extensions
+```
+
 ## Injection Scopes
 Injectable Extensions supports three forms of injection scopes provided by the `InjectionMode` enum:
 
