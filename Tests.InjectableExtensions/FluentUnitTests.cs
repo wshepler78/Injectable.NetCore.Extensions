@@ -19,6 +19,22 @@ namespace Tests.InjectableExtensions
 		        .WithStrictNaming();
 
 	        Assert.IsTrue(settings.InterfaceRootNamespaces.Count > 0);
+
+			var settings2 = InjectionSettings
+		        .WithInjectionMode(InjectionMode.Scoped)
+		        .WithRootNamespaces("Someroot", "someOtherRoot")
+		        .LimitImplementationsToInterfaceNamespace()
+		        .WithInterfacePrefix("I")
+		        .WithInterfaceSuffixes(new List<string> { "Repository", "Service" })
+		        .WithStrictNaming();
+
+			var settings3 = InjectionSettings
+				.WithInjectionMode(InjectionMode.Scoped)
+				.WithRootNamespaces(new List<string>{"Someroot", "someOtherRoot"})
+				.LimitImplementationsToInterfaceNamespace()
+				.WithInterfacePrefix("I")
+				.WithInterfaceSuffixes(new List<string> { "Repository", "Service" })
+				.WithStrictNaming();
         }
     }
 }

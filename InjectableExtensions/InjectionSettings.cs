@@ -79,13 +79,18 @@ namespace Injectable.NetCore.Extensions
 
         public IInjectionImplementationLimitsConfiguration WithRootNamespace(string name)
         {
-	        return WithRootNamespaces(new[] {name});
+	        return WithRootNamespaces(name);
+        }
+
+        public IInjectionImplementationLimitsConfiguration WithRootNamespaces(params string[] names)
+        {
+	        return WithRootNamespaces(names.AsEnumerable());
         }
 
         public IInjectionImplementationLimitsConfiguration WithRootNamespaces(IEnumerable<string> names)
         {
 	        InterfaceRootNamespaces = CleanList(names);
-			return this;
+	        return this;
         }
 
         public IPrefixConfiguration LimitImplementationsToInterfaceNamespace()
@@ -117,9 +122,14 @@ namespace Injectable.NetCore.Extensions
 			return this;
         }
 
+        public IStrictNamingConfiguration WithInterfaceSuffixes(params string[] suffixes)
+        {
+	        return WithInterfaceSuffixes(suffixes.AsEnumerable());
+        }
+
         public IStrictNamingConfiguration WithInterfaceSuffix(string suffix)
         {
-	        return WithInterfaceSuffixes(new[] {suffix});
+	        return WithInterfaceSuffixes(suffix);
         }
 
         public IStrictNamingConfiguration WithoutInterfaceSuffixes()
