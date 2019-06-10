@@ -41,7 +41,7 @@ This is the definition of the `IInjectionSettings` interface. Any implementation
 | InterfaceRootNamespaces | List&lt;string&gt; | |  Namespaces to load interfaces from |
 | EnforceStrictNaming | bool | _true_ | When set to true, Injected classes must have the same name as the interface, without the leading prefix <br /><br />_For Example: INameProvider will inject the NameProvider class, but not TheNameProvider, even if TheNameProvider implements INameProvider_ |
 | RestrictImplementationsToInterfaceNamespaces | bool | _false_ | When set to true, only classes in the same root namespaces as the interface collections they implement will be injected |
-| InjectionMode | InjectionMode | | Specifies the injection mode from `Injectable.NetCore.Extensions.InjectionMode`|
+| InjectionMode | InjectionMode | _InjectionMode.Scoped_ | Specifies the injection mode from `Injectable.NetCore.Extensions.InjectionMode`|
 
 | Method | Returns | Usage |
 | --- | --- | --- |
