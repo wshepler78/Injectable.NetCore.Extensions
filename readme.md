@@ -93,7 +93,7 @@ This will result in All Interfaces starting with "I" and ending in "Service" res
 
 ## Usage 2: Explicit Scope Injection
 
-Explicit extension methods exist for each type of scope by providing a root namespace and suffix. So if my convention for naming your service interfaces is "I&lt;ClasasName&gt;Service" (we default the prefix to "I", but that can also be overriden)
+Explicit extension methods exist for each type of scope by providing a root namespace and suffix. So if my convention for naming your service interfaces is "I&lt;ClassName&gt;Service" (we default the prefix to "I", but that can also be overriden)
 
 If your interface declarations are:
 ```C#
