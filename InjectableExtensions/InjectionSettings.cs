@@ -31,7 +31,22 @@ namespace Injectable.NetCore.Extensions
         /// 
         /// Defaults to false
         /// </summary>
-        public bool RestrictImplementationsToInterfaceNamespaces { get; set; } = false;
+        public bool RestrictImplementationsToInterfaceNamespaces { get; set; }
+
+        /// <summary>
+        /// Defines the list of namespaces where implementation of the interfaces is allowed for injection
+        ///
+        /// An empty or null list will allow implementation in any namespace unless restricted by the RestrictImplementationsToInterfaceNamespaces property
+        ///
+        /// Namespaces can be provided as the partially (ends with) or fully Qualified Namespace
+        /// ex: To inject an implementation from MyAssembly.Utilities.Dates any of the following will work
+        ///
+        /// "MyAssembly.Utilities.Dates"
+        /// "Utilities.Dates"
+        /// "Dates"
+        /// 
+        /// </summary>
+        public List<string> AllowedImplementationNamespaces { get; set; } = new List<string>();
 
         public InjectionMode InjectionMode { get; set; } = InjectionMode.Scoped;
 
@@ -103,6 +118,23 @@ namespace Injectable.NetCore.Extensions
         {
 	        RestrictImplementationsToInterfaceNamespaces = false;
 	        return this;
+        }
+
+        public IPrefixConfiguration AllowImplementationsInNamespaces(params string[] implementationNamespaces)
+        {
+	        return AllowImplementationsInNamespaces(implementationNamespaces.AsEnumerable());
+        }
+
+        public IPrefixConfiguration AllowImplementationsInNamespaces(IEnumerable<string> implementationNamespaces)
+        {
+	        RestrictImplementationsToInterfaceNamespaces = false;
+	        AllowedImplementationNamespaces = implementationNamespaces.ToList();
+	        return this;
+        }
+
+        public IPrefixConfiguration AllowImplementationsInNamespace(string implementationNamespace)
+        {
+	        return AllowImplementationsInNamespaces(implementationNamespace);
         }
 
         public ISuffixConfiguration WithInterfacePrefix(string prefix)

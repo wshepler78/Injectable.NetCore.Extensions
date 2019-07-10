@@ -169,13 +169,19 @@ namespace Injectable.NetCore.Extensions
             List<TypeInfo> localAssemblyTypes = new List<TypeInfo>();
             List<TypeInfo> localInterfaceTypes = new List<TypeInfo>();
 
+            var allowedImplementationNamespaces = settings.AllowedImplementationNamespaces ?? new List<string>();
+            var interfaceRootNamespaces = settings.InterfaceRootNamespaces ?? new List<string>();
+
             referencedPaths.ForEach(path =>
             {
                 var source = Assembly.LoadFrom(path);
 
                 var localTypeList = source.DefinedTypes.Where(ti => ti.Namespace != null 
-                                                            && (!settings.RestrictImplementationsToInterfaceNamespaces
-                                                                || settings.InterfaceRootNamespaces.Contains(ti.Namespace.Split('.').First())
+                                                            && 
+                                                            (
+		                                                        allowedImplementationNamespaces.Any(ain => !settings.RestrictImplementationsToInterfaceNamespaces && ti.Namespace.EndsWith(ain))
+	                                                            || 
+                                                                interfaceRootNamespaces.Any(irn => settings.RestrictImplementationsToInterfaceNamespaces && ti.Namespace.StartsWith(irn))
                                                             )
                                                         ).ToList();
                 localAssemblyTypes.AddRange(localTypeList);
