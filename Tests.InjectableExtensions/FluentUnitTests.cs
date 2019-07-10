@@ -35,6 +35,14 @@ namespace Tests.InjectableExtensions
 				.WithInterfacePrefix("I")
 				.WithInterfaceSuffixes(new List<string> { "Repository", "Service" })
 				.WithStrictNaming();
+
+			var settings4 = InjectionSettings
+				.WithInjectionMode(InjectionMode.Scoped)
+				.WithRootNamespaces(new List<string> { "Someroot", "someOtherRoot" })
+				.AllowImplementationsInNamespaces("Test", "Units.Test")
+				.WithInterfacePrefix("I")
+				.WithInterfaceSuffixes(new List<string> { "Repository", "Service" })
+				.WithStrictNaming();
         }
     }
 }

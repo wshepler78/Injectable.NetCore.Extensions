@@ -36,7 +36,22 @@ namespace Injectable.NetCore.Extensions
 		/// </summary>
 		bool RestrictImplementationsToInterfaceNamespaces { get; }
 
-		InjectionMode InjectionMode { get; }
+		/// <summary>
+		/// Defines the list of namespaces where implementation of the interfaces is allowed for injection
+		///
+		/// An empty or null list will allow implementation in any namespace unless restricted by the RestrictImplementationsToInterfaceNamespaces property
+		///
+		/// Namespaces can be provided as the partially (ends with) or fully Qualified Namespace
+		/// ex: To inject an implementation from MyAssembly.Utilities.Dates any of the following will work
+		///
+		/// "MyAssembly.Utilities.Dates"
+		/// "Utilities.Dates"
+		/// "Dates"
+		/// 
+		/// </summary>
+        List<string> AllowedImplementationNamespaces { get; }
+
+        InjectionMode InjectionMode { get; }
 
 		/// <summary>
 		/// Checks settings for minimum viable usability, throws an InvalidOperationException if validation criteria fails
