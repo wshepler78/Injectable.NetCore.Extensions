@@ -179,6 +179,8 @@ namespace Injectable.NetCore.Extensions
                 var localTypeList = source.DefinedTypes.Where(ti => ti.Namespace != null 
                                                             && 
                                                             (
+																allowedImplementationNamespaces.Count == 0
+																||
 		                                                        allowedImplementationNamespaces.Any(ain => !settings.RestrictImplementationsToInterfaceNamespaces && ti.Namespace.EndsWith(ain))
 	                                                            || 
                                                                 interfaceRootNamespaces.Any(irn => settings.RestrictImplementationsToInterfaceNamespaces && ti.Namespace.StartsWith(irn))
