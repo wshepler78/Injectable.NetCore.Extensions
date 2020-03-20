@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.1;netstandard2.0</TargetFrameworks>
     <AssemblyName>Injectable.NetCore.Extensions</AssemblyName>
     <RootNamespace>Injectable.NetCore.Extensions</RootNamespace>
     <Authors>Will Shepler</Authors>
@@ -11,12 +11,14 @@
     <RepositoryUrl>https://github.com/wshepler78/Injectable.NetCore.Extensions</RepositoryUrl>
     <PackageProjectUrl>https://github.com/wshepler78/Injectable.NetCore.Extensions</PackageProjectUrl>
     <PackageLicenseExpression></PackageLicenseExpression>
-    <PackageIconUrl>https://raw.githubusercontent.com/wshepler78/Injectable.NetCore.Extensions/master/injectable_netcore_extensions.png</PackageIconUrl>
+    <PackageIconUrl></PackageIconUrl>
     <PackageTags>Injection, IOC, NetCoreStandard, Inject, Utilities</PackageTags>
     <Description>Provides extensions for depenedency injection to enable convention-based injection for .Net Core and Standard projects</Description>
     <Copyright>2019</Copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <Version>1.0.3</Version>
+    <Version>1.1.0.0</Version>
+    <PackageReleaseNotes>Added multi-targeting to support netcore2.1 targeting</PackageReleaseNotes>
+    <PackageIcon>injectable_netcore_extensions.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,6 +26,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\injectable_netcore_extensions.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
     <None Include="..\LICENSE">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
