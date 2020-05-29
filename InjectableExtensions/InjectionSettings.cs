@@ -51,6 +51,13 @@ namespace Injectable.NetCore.Extensions
         public InjectionMode InjectionMode { get; set; } = InjectionMode.Scoped;
 
         /// <summary>
+        /// When true, all interfaces defined matching the convention must be implemented.
+        ///
+        /// Defaults to true
+        /// </summary>
+        public bool ForceImplementationForAllDefinitions { get; set; } = true;
+
+        /// <summary>
         /// Checks settings for minimum viable usability, throws an InvalidOperationException if validation criteria fails
         /// </summary>
         /// <exception cref="InvalidOperationException">Thrown when setting validation fails</exception>
@@ -68,8 +75,9 @@ namespace Injectable.NetCore.Extensions
                 throw new InvalidOperationException(string.Join(Environment.NewLine, messages));
         }
 
-        public IInjectionRootNamespaceConfiguration Configure()
+        public IInjectionRootNamespaceConfiguration Configure(bool forceImplementationForAllDefinitions)
         {
+            ForceImplementationForAllDefinitions = forceImplementationForAllDefinitions;
 	        return this;
         }
 

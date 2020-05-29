@@ -53,15 +53,21 @@ namespace Injectable.NetCore.Extensions
 
         InjectionMode InjectionMode { get; }
 
-		/// <summary>
+
+        /// <summary>
+        /// When true, all interfaces defined matching the convention must be implemented.
+        /// </summary>
+		bool ForceImplementationForAllDefinitions { get; }
+
+        /// <summary>
 		/// Checks settings for minimum viable usability, throws an InvalidOperationException if validation criteria fails
 		/// </summary>
 		/// <exception cref="InvalidOperationException">Thrown when setting validation fails</exception>
 		void Validate();
 
-		/// <summary>
-		/// Begins Fluent Configuration
-		/// </summary>
-        IInjectionRootNamespaceConfiguration Configure();
+        /// <summary>
+        /// Begins Fluent Configuration
+        /// </summary>
+        IInjectionRootNamespaceConfiguration Configure(bool forceImplementationOfAllDefinitions = true);
 	}
 }

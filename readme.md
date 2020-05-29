@@ -43,11 +43,12 @@ This is the definition of the `IInjectionSettings` interface. Any implementation
 | RestrictImplementationsToInterfaceNamespaces | bool | _false_ | When set to true, only classes in the same root namespaces as the interface collections they implement will be injected |
 | AllowedImplementationNamespaces | List&lt;string&gt; | | <p>Defines the list of namespaces where implementation of the interfaces is allowed for injection</p><p>An empty or null list will allow implementation in any namespace unless restricted by the RestrictImplementationsToInterfaceNamespaces property</p><p>Namespaces can be provided as the partially (ends with) or fully Qualified Namespace</p><p>_For Example: To inject an implementation from MyAssembly.Utilities.Dates any of the following will work<br /><br />"MyAssembly.Utilities.Dates"<br />"Utilities.Dates"<br />"Dates"_</p>|
 | InjectionMode | InjectionMode | _InjectionMode.Scoped_ | Specifies the injection mode from `Injectable.NetCore.Extensions.InjectionMode`|
+| ForceImplementationForAllDefinitions | bool | true | When true, thows an exception if any interface matching the convention is not implemented |
 
 | Method | Returns | Usage |
 | --- | --- | --- |
 | Validate() | _void_ | Checks settings for minimum viable usability, throws an InvalidOperationException if validation criteria fails |
-| Configure() | `IInjectionRootNamespaceConfiguration` | Begins Fluent Configuration |
+| Configure(bool forceImplementationForAllDefinitions = true) | `IInjectionRootNamespaceConfiguration` | Begins Fluent Configuration |
 
 ## Usage 1: Fluent Injection
 
