@@ -211,7 +211,17 @@ namespace Injectable.NetCore.Extensions
                         var concreteType = localAssemblyTypes
                             .Where(ti => !ti.IsInterface && (!settings.EnforceStrictNaming || interfaceType.Name == $"{settings.InterfacePrefix}{ti.Name}"))
                             .Select(ti => ti.AsType())
-                            .Single(t => t.GetInterfaces().Contains(interfaceType));
+                            .SingleOrDefault(t => t.GetInterfaces().Contains(interfaceType));
+
+                        if (concreteType == null)
+                        {
+                            if (settings.ForceImplementationForAllDefinitions)
+                            {
+                                throw new InvalidOperationException($"ForceImplementationForAllDefinitions is set to true, but no implementation was found for {interfaceType.FullName}");
+                            }
+                            
+                            return;
+                        }
 
                         switch (settings.InjectionMode)
                         {
