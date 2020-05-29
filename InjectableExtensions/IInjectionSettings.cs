@@ -57,7 +57,7 @@ namespace Injectable.NetCore.Extensions
         /// <summary>
         /// When true, all interfaces defined matching the convention must be implemented.
         /// </summary>
-		bool ForceImplementationForAllDefinitions { get; }
+		bool ForceImplementationForAllDefinitions { get; set; }
 
         /// <summary>
 		/// Checks settings for minimum viable usability, throws an InvalidOperationException if validation criteria fails
