@@ -16,7 +16,7 @@
     <Description>Provides extensions for depenedency injection to enable convention-based injection for .Net Core and Standard projects</Description>
     <Copyright>2020</Copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <Version>1.2.0.1</Version>
+    <Version>1.2.0.2</Version>
     <PackageReleaseNotes>Added multi-targeting to support netcore2.1 targeting</PackageReleaseNotes>
     <PackageIcon>injectable_netcore_extensions.png</PackageIcon>
     <AssemblyVersion>1.2.0.1</AssemblyVersion>
@@ -24,7 +24,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
   </ItemGroup>
 
   <ItemGroup>
