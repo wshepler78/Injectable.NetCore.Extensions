@@ -10,3 +10,7 @@
 /InjectableExtensions/bin
 /InjectableExtensions/Properties/PublishProfiles
 /.vs/InjectableExtensions/DesignTimeBuild/.dtbcache
+
+.vs/InjectableExtensions/DesignTimeBuild/.dtbcache.v2
+
+.vs/InjectableExtensions/v16/.suo
