@@ -1,16 +1,13 @@
-﻿################################################################################
+################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/Tests.InjectableExtensions/bin/Debug/netcoreapp2.2
-/Tests.InjectableExtensions/obj
+/Tests.InjectableExtensions/bin/
+/Tests.InjectableExtensions/obj/
 /InjectableExtensions/obj
-/InjectableExtensions/bin/Debug/netstandard2.0
-/.vs/InjectableExtensions/v16/Server/sqlite3
-/InjectableExtensions/bin
-/InjectableExtensions/Properties/PublishProfiles
-/.vs/InjectableExtensions/DesignTimeBuild/.dtbcache
-
-.vs/InjectableExtensions/DesignTimeBuild/.dtbcache.v2
-
-.vs/InjectableExtensions/v16/.suo
+/InjectableExtensions/bin/
+/TestObjects/bin/
+/TestObjects/obj/
+/TestObjects_2/bin/
+/TestObjects_2/obj/
+.vs/
