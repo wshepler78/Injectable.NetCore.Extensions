@@ -2,16 +2,12 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/Tests.InjectableExtensions/bin/*
-/Tests.InjectableExtensions/obj/*
+/Tests.InjectableExtensions/bin/
+/Tests.InjectableExtensions/obj/
 /InjectableExtensions/obj
-/InjectableExtensions/bin/*
-/.vs/*
-
-*.user
-
-TestObjects/bin/*
-
-TestObjects/obj/*
-
-*.testlog
+/InjectableExtensions/bin/
+/TestObjects/bin/
+/TestObjects/obj/
+/TestObjects_2/bin/
+/TestObjects_2/obj/
+.vs/
