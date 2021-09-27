@@ -186,22 +186,6 @@ namespace Tests.InjectableExtensions
             Assert.True(settings.InterfaceRootNamespaces.All(rootNamespaces.Contains));
         }
 
-        [Theory]
-        [MemberData(nameof(GetNamespaceTestData), DisableDiscoveryEnumeration = true)]
-        public void WhenObjectsAreSpecified_AsNamespaceProviders_ThenTheNamespaceIsAddedToTheListTheExpectedNumberOfTimes(List<string> rootNamespaces, int expectedCount, IEnumerable<Type> types)
-        {
-            var settings = InjectionSettings
-                .WithInjectionMode(InjectionMode.Scoped)
-                .InNamespacesOf(types)
-                .LimitImplementationsToInterfaceNamespace()
-                .WithInterfacePrefix("I")
-                .WithInterfaceSuffixes(new List<string> { "Repository", "Service" })
-                .WithStrictNaming();
-
-            Assert.Equal(expectedCount, settings.InterfaceRootNamespaces.Count);
-            Assert.True(settings.InterfaceRootNamespaces.All(rootNamespaces.Contains));
-        }
-
         [Fact]
         public void WhenObjectIsSpecified_AsImplementationNamespaceProvider_ThenTheNamespaceIsAddedToTheList()
         {
