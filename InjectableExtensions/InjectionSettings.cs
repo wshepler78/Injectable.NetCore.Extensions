@@ -189,12 +189,6 @@ namespace Injectable.NetCore.Extensions
         public IInjectionImplementationLimitsConfiguration WithRootNamespacesOf(IEnumerable<Type> types) =>
             WithRootNamespacesOf(types.ToArray());
 
-        public IInjectionImplementationLimitsConfiguration InNamespaceOf(Type type) => WithRootNamespaces(GetNamespaces(new List<Type>{type}, false));
-
-        public IInjectionImplementationLimitsConfiguration InNamespacesOf(params Type[] types) => WithRootNamespaces(GetNamespaces(types, false));
-
-        public IInjectionImplementationLimitsConfiguration InNamespacesOf(IEnumerable<Type> types) => WithRootNamespaces(GetNamespaces(types, false));
-
         public IPrefixConfiguration LimitImplementationsToInterfaceNamespace()
         {
             RestrictImplementationsToInterfaceNamespaces = true;

@@ -11,8 +11,5 @@ namespace Injectable.NetCore.Extensions.FluentInterfaces
         IInjectionImplementationLimitsConfiguration WithRootNamespaceOf(Type type);
         IInjectionImplementationLimitsConfiguration WithRootNamespacesOf(params Type[] types);
         IInjectionImplementationLimitsConfiguration WithRootNamespacesOf(IEnumerable<Type> types);
-        IInjectionImplementationLimitsConfiguration InNamespaceOf(Type type);
-        IInjectionImplementationLimitsConfiguration InNamespacesOf(params Type[] types);
-        IInjectionImplementationLimitsConfiguration InNamespacesOf(IEnumerable<Type> types);
     }
 }
