@@ -69,5 +69,10 @@ namespace Injectable.NetCore.Extensions
         /// Begins Fluent Configuration
         /// </summary>
         IInjectionRootNamespaceConfiguration Configure(bool forceImplementationOfAllDefinitions = true);
+
+		/// <summary>
+		/// Specifies whether or not to use the root namespace of specified Implementation(s)
+        /// </summary>
+        bool UseImplementationRoot { get; set; }
 	}
 }

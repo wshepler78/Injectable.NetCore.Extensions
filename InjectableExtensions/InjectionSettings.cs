@@ -61,6 +61,10 @@ namespace Injectable.NetCore.Extensions
         public bool ForceImplementationForAllDefinitions { get; set; } = true;
 
         /// <summary>
+        /// When true, will use the root namespace of the implementation namespaces specified, this is set to true when using the AllowImplementationsInAssemblyOf and AllowImplementationsInAssembliesOf configurations.
+        /// </summary>
+        public bool UseImplementationRoot { get; set; }
+        /// <summary>
         /// Checks settings for minimum viable usability, throws an InvalidOperationException if validation criteria fails
         /// </summary>
         /// <exception cref="InvalidOperationException">Thrown when setting validation fails</exception>
@@ -219,8 +223,12 @@ namespace Injectable.NetCore.Extensions
         {
             return AllowImplementationsInNamespaces(implementationNamespace);
         }
-
-        public IPrefixConfiguration AllowImplementationsInAssembliesOf(params Type[] types) => AllowImplementationsInNamespaces(GetNamespaces(types, true));
+    
+        public IPrefixConfiguration AllowImplementationsInAssembliesOf(params Type[] types)
+        {
+            UseImplementationRoot = true;
+            return AllowImplementationsInNamespaces(GetNamespaces(types, true));
+        }
 
         public IPrefixConfiguration AllowImplementationsInAssembliesOf(IEnumerable<Type> types) =>
             AllowImplementationsInAssembliesOf(types.ToArray());

@@ -184,6 +184,8 @@ namespace Injectable.NetCore.Extensions
 		                                                        allowedImplementationNamespaces.Any(ain => !settings.RestrictImplementationsToInterfaceNamespaces && ti.Namespace.EndsWith(ain))
 	                                                            || 
                                                                 interfaceRootNamespaces.Any(irn => settings.RestrictImplementationsToInterfaceNamespaces && ti.Namespace.StartsWith(irn))
+                                                                ||
+                                                                allowedImplementationNamespaces.Any(ain => !settings.RestrictImplementationsToInterfaceNamespaces && settings.UseImplementationRoot && ti.Namespace.StartsWith(ain))
                                                             )
                                                         ).ToList();
                 localAssemblyTypes.AddRange(localTypeList);
