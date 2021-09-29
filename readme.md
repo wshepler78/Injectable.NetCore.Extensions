@@ -134,3 +134,9 @@ There are many optional parameters to the Inject extenstions that allow you to c
 ## Reflection, Injection, and Multiple Implementations
 
 I realize there is nothing that prevents or restricts the implementation of an interface on multiple classes. HOWEVER, there is a limitation on this imposed by the dependency injection process that does not allow multiple implementations for injected types. This will cause an error.
+
+## Change Log
+| Version | Changes |
+| ----------- | --------------------------------------------------------------|
+| 1.3.0.1 | <ul><li>Added type-based option for supplying fluent namespaces</li><li>Added Change Log to readme.md</li></ul> |
+
