@@ -4,6 +4,9 @@ using Injectable.NetCore.Extensions.FluentInterfaces;
 
 namespace Injectable.NetCore.Extensions
 {
+	/// <summary>
+	/// Convention-based injection settings.
+	/// </summary>
 	public interface IInjectionSettings
 	{
 		/// <summary>
@@ -51,7 +54,10 @@ namespace Injectable.NetCore.Extensions
 		/// </summary>
         List<string> AllowedImplementationNamespaces { get; }
 
-        InjectionMode InjectionMode { get; }
+		/// <summary>
+		/// Gets the injection mode.
+		/// </summary>
+		InjectionMode InjectionMode { get; }
 
 
         /// <summary>
