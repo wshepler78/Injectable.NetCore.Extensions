@@ -8,6 +8,16 @@ using Injectable.NetCore.Extensions.FluentInterfaces;
 
 namespace Injectable.NetCore.Extensions
 {
+    /// <summary>
+    /// Configuration settings for <see cref="IInjectionManager"/>
+    /// </summary>
+    /// <seealso cref="Injectable.NetCore.Extensions.IInjectionSettings" />
+    /// <seealso cref="Injectable.NetCore.Extensions.FluentInterfaces.IInjectionModeConfiguration" />
+    /// <seealso cref="Injectable.NetCore.Extensions.FluentInterfaces.IInjectionRootNamespaceConfiguration" />
+    /// <seealso cref="Injectable.NetCore.Extensions.FluentInterfaces.IInjectionImplementationLimitsConfiguration" />
+    /// <seealso cref="Injectable.NetCore.Extensions.FluentInterfaces.IPrefixConfiguration" />
+    /// <seealso cref="Injectable.NetCore.Extensions.FluentInterfaces.ISuffixConfiguration" />
+    /// <seealso cref="Injectable.NetCore.Extensions.FluentInterfaces.IStrictNamingConfiguration" />
     public class InjectionSettings : IInjectionSettings, IInjectionModeConfiguration, IInjectionRootNamespaceConfiguration, IInjectionImplementationLimitsConfiguration, IPrefixConfiguration, ISuffixConfiguration, IStrictNamingConfiguration
     {
         /// <summary>
@@ -17,7 +27,7 @@ namespace Injectable.NetCore.Extensions
         /// <summary>
         /// Interface suffixs to identify injectables
         /// </summary>
-        public List<string> InterfaceSuffixList { get; set; } = new List<string>();
+        public List<string> InterfaceSuffixList { get; set; } = new List<string>{string.Empty};
         /// <summary>
         /// Namespaces to load interfaces from
         /// </summary>
@@ -51,6 +61,9 @@ namespace Injectable.NetCore.Extensions
         /// </summary>
         public List<string> AllowedImplementationNamespaces { get; set; } = new List<string>();
 
+        /// <summary>
+        /// Gets or sets the injection mode.
+        /// </summary>
         public InjectionMode InjectionMode { get; set; } = InjectionMode.Scoped;
 
         /// <summary>
@@ -133,6 +146,7 @@ namespace Injectable.NetCore.Extensions
             }
         }
 
+        /// <inheritdoc />
         public IInjectionRootNamespaceConfiguration Configure(bool forceImplementationForAllDefinitions)
         {
             ForceImplementationForAllDefinitions = forceImplementationForAllDefinitions;
@@ -166,46 +180,56 @@ namespace Injectable.NetCore.Extensions
             return this;
         }
 
+        /// <inheritdoc />
         public IInjectionImplementationLimitsConfiguration WithRootNamespace(string name)
         {
             return WithRootNamespaces(name);
         }
 
+        /// <inheritdoc />
         public IInjectionImplementationLimitsConfiguration WithRootNamespaces(params string[] names)
         {
             return WithRootNamespaces(names.AsEnumerable());
         }
 
+        /// <inheritdoc />
         public IInjectionImplementationLimitsConfiguration WithRootNamespaces(IEnumerable<string> names)
         {
             InterfaceRootNamespaces = CleanList(names);
             return this;
         }
 
+        /// <inheritdoc />
         public IInjectionImplementationLimitsConfiguration WithRootNamespaceOf(Type type) => WithRootNamespaces(GetNamespaces(new List<Type> { type }, true));
 
+        /// <inheritdoc />
         public IInjectionImplementationLimitsConfiguration WithRootNamespacesOf(params Type[] types) => WithRootNamespaces(GetNamespaces(types, true));
 
+        /// <inheritdoc />
         public IInjectionImplementationLimitsConfiguration WithRootNamespacesOf(IEnumerable<Type> types) =>
             WithRootNamespacesOf(types.ToArray());
 
+        /// <inheritdoc />
         public IPrefixConfiguration LimitImplementationsToInterfaceNamespace()
         {
             RestrictImplementationsToInterfaceNamespaces = true;
             return this;
         }
 
+        /// <inheritdoc />
         public IPrefixConfiguration AllowImplementationsInAnyNamespace()
         {
             RestrictImplementationsToInterfaceNamespaces = false;
             return this;
         }
 
+        /// <inheritdoc />
         public IPrefixConfiguration AllowImplementationsInNamespaces(params string[] implementationNamespaces)
         {
             return AllowImplementationsInNamespaces(implementationNamespaces.AsEnumerable());
         }
 
+        /// <inheritdoc />
         public IPrefixConfiguration AllowImplementationsInNamespaces(IEnumerable<string> implementationNamespaces)
         {
             RestrictImplementationsToInterfaceNamespaces = false;
@@ -213,74 +237,94 @@ namespace Injectable.NetCore.Extensions
             return this;
         }
 
+        /// <inheritdoc />
         public IPrefixConfiguration AllowImplementationsInNamespace(string implementationNamespace)
         {
             return AllowImplementationsInNamespaces(implementationNamespace);
         }
-    
+
+        /// <inheritdoc />
         public IPrefixConfiguration AllowImplementationsInAssembliesOf(params Type[] types)
         {
             UseImplementationRoot = true;
             return AllowImplementationsInNamespaces(GetNamespaces(types, true));
         }
 
+        /// <inheritdoc />
         public IPrefixConfiguration AllowImplementationsInAssembliesOf(IEnumerable<Type> types) =>
             AllowImplementationsInAssembliesOf(types.ToArray());
 
+        /// <inheritdoc />
         public IPrefixConfiguration AllowImplementationsInAssemblyOf(Type type) =>
             AllowImplementationsInAssembliesOf(new List<Type> { type });
 
+        /// <inheritdoc />
         public IPrefixConfiguration AllowImplementationsInNamespacesOf(params Type[] types) => AllowImplementationsInNamespaces(GetNamespaces(types, false));
 
+        /// <inheritdoc />
         public IPrefixConfiguration AllowImplementationsInNamespacesOf(IEnumerable<Type> types) => AllowImplementationsInNamespaces(GetNamespaces(types, false));
 
+        /// <inheritdoc />
         public IPrefixConfiguration AllowImplementationsInNamespaceOf(Type type) => AllowImplementationsInNamespaces(GetNamespaces(new List<Type> { type }, false));
 
+        /// <inheritdoc />
         public ISuffixConfiguration WithInterfacePrefix(string prefix)
         {
             InterfacePrefix = prefix;
             return this;
         }
 
+        /// <inheritdoc />
         public ISuffixConfiguration WithDefaultInterfacePrefix()
         {
             return WithInterfacePrefix("I");
         }
 
+        /// <inheritdoc />
         public IStrictNamingConfiguration WithInterfaceSuffixes(IEnumerable<string> suffixes)
         {
             InterfaceSuffixList = CleanList(suffixes);
             return this;
         }
 
+        /// <inheritdoc />
         public IStrictNamingConfiguration WithInterfaceSuffixes(params string[] suffixes)
         {
             return WithInterfaceSuffixes(suffixes.AsEnumerable());
         }
 
+        /// <inheritdoc />
         public IStrictNamingConfiguration WithInterfaceSuffix(string suffix)
         {
             return WithInterfaceSuffixes(suffix);
         }
 
+        /// <inheritdoc />
         public IStrictNamingConfiguration WithoutInterfaceSuffixes()
         {
-            InterfaceSuffixList = new List<string>();
+            InterfaceSuffixList = new List<string>{string.Empty};
             return this;
         }
 
+        /// <inheritdoc />
         public IInjectionSettings WithStrictNaming()
         {
             EnforceStrictNaming = true;
             return this;
         }
 
+        /// <inheritdoc />
         public IInjectionSettings WithoutStrictNaming()
         {
             EnforceStrictNaming = false;
             return this;
         }
 
+        /// <summary>
+        /// Sets the injection mode to use.
+        /// </summary>
+        /// <param name="mode">The mode.</param>
+        /// <returns></returns>
         public static IInjectionRootNamespaceConfiguration WithInjectionMode(InjectionMode mode)
         {
             var settings = new InjectionSettings();

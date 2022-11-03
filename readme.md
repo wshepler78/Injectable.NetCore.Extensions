@@ -138,5 +138,6 @@ I realize there is nothing that prevents or restricts the implementation of an i
 ## Change Log
 | Version | Changes |
 | ----------- | --------------------------------------------------------------|
+| 1.4.0.0 | Fixed a bug when using no suffix list, added xml documentation |
 | 1.3.0.1 | <ul><li>Added type-based option for supplying fluent namespaces</li><li>Added Change Log to readme.md</li></ul> |
 

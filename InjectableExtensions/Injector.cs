@@ -8,6 +8,9 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace Injectable.NetCore.Extensions
 {
+    /// <summary>
+    /// Class that handles reflection and injection of types.
+    /// </summary>
     public static class Injector
     {
         /// <summary>
@@ -114,12 +117,14 @@ namespace Injectable.NetCore.Extensions
         /// <summary>
         /// Injects Singleton, Scoped or Transient mappings based on the supplied parameters
         /// </summary>
-        /// <param name="services"></param>
+        /// <param name="services">The services.</param>
+        /// <param name="mode">The injection mode.</param>
         /// <param name="rootNamespace">Root namespace to poll for interfaces</param>
         /// <param name="interfaceSuffixList">Suffixes for injectable interfaces</param>
         /// <param name="interfacePrefix">Prefix for injectable interfaces</param>
         /// <param name="enforceStrictNaming">If true, will only inject concrete types whos class names are {interfacePrefix}{ConcreteClassName}{InterfaceSuffix}</param>
         /// <param name="restrictImplementationsToInterfaceNamespaces">If true, will only map interfaces to concrete classes in the same root namespace</param>
+        /// <returns></returns>
         private static IServiceCollection InjectFrom (this IServiceCollection services, InjectionMode mode, string rootNamespace,
             List<string> interfaceSuffixList, string interfacePrefix = "I", bool enforceStrictNaming = true,
             bool restrictImplementationsToInterfaceNamespaces = false)
@@ -257,6 +262,12 @@ namespace Injectable.NetCore.Extensions
             return services;
         }
 
+        /// <summary>
+        /// Injects from manager.
+        /// </summary>
+        /// <param name="services">The services.</param>
+        /// <param name="configuration">The configuration.</param>
+        /// <returns></returns>
         public static IServiceCollection InjectFromManager(this IServiceCollection services, Action<InjectionConfiguration> configuration)
         {
             var config = new InjectionConfiguration();
